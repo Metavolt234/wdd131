@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Optional console log to confirm script execution
-    console.log('Dynamic content loaded for Rubia M. Francesco — WDD 131 assignment');
+    console.log('Dynamic content loaded for Tumwesige Nelson — WDD 131 assignment');
 });
