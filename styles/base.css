@@ -122,15 +122,15 @@ h1 {
 
 .about-image {
     flex: 1;
-    min-width: 120px;
+    min-width: 150px;
     text-align: center;
 }
 
 .about-image img {
     width: 100%;
-    max-width: 150px;
+    max-width: 250px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 100%;
     border: 3px solid #e8b55a;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
