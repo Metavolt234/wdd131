@@ -1,15 +1,15 @@
-// Dynamic Web Fundamentals - Tumwesige Nelson
-// getdates.js functionality: dynamically populate copyright year and last modified date
+// Dynamic Web Fundamentals - T.Nelson
+// getdates.js functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Set current copyright year
+    // 1. Setting current copyright year
     const yearSpan = document.getElementById('currentyear');
     if (yearSpan) {
         const currentYear = new Date().getFullYear();
         yearSpan.textContent = currentYear;
     }
     
-    // 2. Set last modified date from document property
+    // 2. Setting last modified date from document property
     const lastModifiedPara = document.getElementById('lastModified');
     if (lastModifiedPara) {
         // document.lastModified returns a string like "MM/DD/YYYY HH:MM:SS"
