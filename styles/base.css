@@ -129,7 +129,7 @@ h1 {
 .about-image img {
     width: 100%;
     max-width: 250px;
-    height: auto;
+   /*height: auto;*/
     border-radius: 100%;
     border: 3px solid #e8b55a;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
