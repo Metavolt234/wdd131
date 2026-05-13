@@ -87,6 +87,11 @@ figure img {
     border-radius: 8px;
 }
 
+figure img:hover {
+    transform: scale(1.03);
+}
+
+
 figcaption {
     margin-top: 0.5rem;
     font-weight: bold;
