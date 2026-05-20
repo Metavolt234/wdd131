@@ -4,88 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Uganda - The Pearl of Africa</title>
+    <title>Place Page - Uganda</title>
 
-    <meta name="description" content="A responsive webpage about Uganda.">
+    <meta name="description" content="Dedicated page showcasing Uganda's data, weather, and highlights for WDD131.">
+
     <meta name="author" content="Tumwesige Nelson">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/place.css">
     <link rel="stylesheet" href="styles/place-large.css">
 
     <script src="scripts/place.js" defer></script>
+
+    <link rel="icon" href="data:,">
 </head>
 
 <body>
 
     <header>
-        <h1>Uganda - The Pearl of Africa</h1>
+        <h1>Explore Uganda</h1>
     </header>
 
     <main>
 
-        <!-- HERO SECTION -->
-        <section class="hero">
+        <!-- HERO IMAGE -->
+        <div class="hero-container">
+
             <picture>
-                <source media="(min-width: 768px)"
-                    srcset="images/hero.jpg">
 
-                <img src="images/hero.jpg"
-                    alt="Beautiful scenery of Uganda"
-                    width="500"
-                    height="250">
+                <source media="(max-width: 600px)"
+                    srcset="images/uganda-small.webp">
+
+                <source media="(min-width: 601px)"
+                    srcset="images/uganda-large.webp">
+
+                <img src="images/uganda-large.webp"
+                    alt="Beautiful scenery of Uganda including wildlife and nature"
+                    loading="lazy"
+                    width="1200"
+                    height="600">
+
             </picture>
-        </section>
-
-        <!-- CONTENT SECTION -->
-        <div class="info-grid">
-
-            <!-- DATA CARD -->
-            <section class="card">
-                <h2>Data</h2>
-
-                <p><strong>Country:</strong> Uganda</p>
-                <p><strong>Capital:</strong> Kampala</p>
-                <p><strong>Population:</strong> 48 Million+</p>
-                <p><strong>Languages:</strong> English & Luganda</p>
-                <p><strong>Currency:</strong> Ugandan Shilling</p>
-                <p><strong>Known For:</strong> Wildlife & Nature</p>
-            </section>
-
-            <!-- WEATHER CARD -->
-            <section class="card weather">
-
-                <h2>Weather</h2>
-
-                <!-- Mobile SVG Icon -->
-                <img src="images/weather.svg"
-                    alt="Weather Icon"
-                    class="weather-icon"
-                    width="60"
-                    height="60">
-
-                <p><strong>Temperature:</strong> <span id="temp">8</span>°C</p>
-
-                <p><strong>Conditions:</strong> Cloudy</p>
-
-                <p><strong>Wind Speed:</strong> <span id="wind">12</span> km/h</p>
-
-                <p><strong>Wind Chill:</strong>
-                    <span id="windchill"></span>
-                </p>
-
-            </section>
 
         </div>
+
+        <!-- DATA SECTION -->
+        <section class="data-card section-data">
+
+            <h2>Data</h2>
+
+            <ul>
+
+                <li><strong>Area:</strong> 241,038 km²</li>
+
+                <li><strong>Population:</strong> 48 Million+</li>
+
+                <li><strong>Capital:</strong> Kampala</li>
+
+                <li><strong>Language:</strong> English & Luganda</li>
+
+                <li><strong>Currency:</strong> Ugandan Shilling (UGX)</li>
+
+                <li><strong>Time Zone:</strong> UTC +3</li>
+
+                <li><strong>Calling Code:</strong> +256</li>
+
+                <li><strong>Internet TLD:</strong> .ug</li>
+
+            </ul>
+
+        </section>
+
+        <!-- WEATHER SECTION -->
+        <section class="data-card section-weather">
+
+            <h2 class="weather-heading">
+                Weather
+
+                <img src="images/weather-icon.svg"
+                    alt="Weather icon"
+                    class="mobile-weather-icon">
+            </h2>
+
+            <ul>
+
+                <li>
+                    <strong>Temperature:</strong>
+                    <span id="temp">8</span>°C
+                </li>
+
+                <li><strong>Condition:</strong> Partly Cloudy</li>
+
+                <li>
+                    <strong>Wind:</strong>
+                    <span id="wind">12</span> km/h
+                </li>
+
+                <li>
+                    <strong>Wind Chill:</strong>
+                    <span id="windchill"></span>
+                </li>
+
+            </ul>
+
+        </section>
 
     </main>
 
     <footer>
+
         <p>
-            &copy; <span id="currentyear"></span>
-            🌍 Uganda Project 🌍
+            &copy;
+            <span id="currentyear"></span>
+            | Uganda Place Page Assignment
+            | Your Name
         </p>
 
-        <p id="lastModified"></p>
+        <p class="last-modified">
+            Last Modified:
+            <span id="lastmodified"></span>
+        </p>
+
     </footer>
 
 </body>
