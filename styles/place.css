@@ -1,7 +1,15 @@
 :root {
     --primary-color: #1b4332;
     --secondary-color: #ffb703;
-    --accent-color: #0a9405;
+    --accent-color:linear-gradient(
+    to right,
+    #000000,
+    #FCDC04,
+    #D90000,
+    #000000,
+    #FCDC04,
+    #D90000
+);
     --text-dark: #1c1c1c;
     --bg-light: #f4f4f4;
     --card-bg: rgba(255, 255, 255, 0.9);
