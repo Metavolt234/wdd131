@@ -1,7 +1,7 @@
 :root {
     --primary-color: #1b4332;
     --secondary-color: #ffb703;
-    --accent-color:green;
+    --accent-color:rgb(103, 226, 45);
     --text-dark: #1c1c1c;
     --bg-light: #f4f4f4;
     --card-bg: rgba(255, 255, 255, 0.9);
