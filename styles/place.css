@@ -1,19 +1,22 @@
 :root {
-    --primary-color: #1b4332;
-    --secondary-color: #ffb703;
-    --accent-color: background: linear-gradient(
-    to right,
-    #000000,
-    #FCDC04,
-    #D90000,
-    #000000,
-    #FCDC04,
-    #D90000
-);
+    --primary-color: #000000;
+    --secondary-color: #FCDC04;
+    --accent-color: #D90000;
     --text-dark: #1c1c1c;
     --bg-light: #f4f4f4;
     --card-bg: rgba(255, 255, 255, 0.9);
     --font-base: 'Roboto', sans-serif;
+
+    /* Uganda Flag Gradient */
+    --uganda-gradient: linear-gradient(
+        to right,
+        #000000,
+        #FCDC04,
+        #D90000,
+        #000000,
+        #FCDC04,
+        #D90000
+    );
 }
 
 * {
@@ -30,8 +33,8 @@ body {
 }
 
 header {
-    background-color: var(--accent-color);
-    color: red;
+    background: var(--uganda-gradient);
+    color: white;
     text-align: center;
     padding: 1.5rem;
 }
@@ -59,8 +62,8 @@ main {
 }
 
 .data-card h2 {
-    background-color: var(--primary-color);
-    color: red;
+    background: var(--uganda-gradient);
+    color: white;
     padding: 0.75rem;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -87,7 +90,7 @@ main {
 }
 
 footer {
-    background-color: var(--accent-color);
+    background: var(--uganda-gradient);
     color: white;
     text-align: center;
     padding: 1rem;
@@ -98,5 +101,6 @@ footer p {
 }
 
 .last-modified {
-    color: red;
+    color: #FCDC04;
+    font-weight: bold;
 }
