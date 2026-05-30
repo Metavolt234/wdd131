@@ -1,7 +1,7 @@
 :root {
-    --primary: #d88e1f;
-    --secondary: #915716e8;
-    --accent: #b1693f;
+    --primary: #5f4929;
+    --secondary: #0e0b07e8;
+    --accent: #242322;
 
     --background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
     --card-bg: rgba(255, 255, 255, 0.85);
