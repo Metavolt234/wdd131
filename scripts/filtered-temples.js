@@ -64,22 +64,22 @@ const temples = [
   },
 // Add more temple objects here...
 
-  {
-    templeName: "Manila Philippines",
-    location: "Manila, Philippines",
-    dedicated: "1984, September, 25",
-    area: 26683,
+{
+    templeName: "Durban South Africa",
+    location: "Durban, South Africa",
+    dedicated: "2020, February, 16",
+    area: 19860,
     imageUrl:
-      "https://www.churchofjesuschrist.org/imgs/75a25fc00384f7067f485315607cc760381f35d2/full/!1200,/0/default"
+      "https://www.churchofjesuschrist.org/imgs/8b3f1b895a7c92ee66c2d0c7e78606f75f0d0cc8/full/!1200,/0/default"
   },
 
   {
-    templeName: "Rome Italy",
-    location: "Rome, Italy",
-    dedicated: "2019, March, 10",
-    area: 41010,
+    templeName: "Nairobi Kenya Temple",
+    location: "Nairobi Kenya",
+    dedicated: "2021, September 11",
+    area: 13646,
     imageUrl:
-      "https://www.churchofjesuschrist.org/imgs/60ecad34b8ccba920297633d3f3b4763a7785667/full/!1200,/0/default"
+      "https://churchofjesuschristtemples.org/assets/img/temples/nairobi-kenya-temple/nairobi-kenya-temple-60488-main.jpg"
   },
 
   {
@@ -100,14 +100,18 @@ const temples = [
       "https://www.churchofjesuschrist.org/imgs/396dd44dcb8c55b10150bae7f3916389465acc0d/full/!1200,/0/default"
   },
 
+
   {
-    templeName: "Durban South Africa",
-    location: "Durban, South Africa",
-    dedicated: "2020, February, 16",
-    area: 19860,
+    templeName: "Rome Italy",
+    location: "Rome, Italy",
+    dedicated: "2019, March, 10",
+    area: 41010,
     imageUrl:
-      "https://www.churchofjesuschrist.org/imgs/8b3f1b895a7c92ee66c2d0c7e78606f75f0d0cc8/full/!1200,/0/default"
-  }
+      "https://www.churchofjesuschrist.org/imgs/60ecad34b8ccba920297633d3f3b4763a7785667/full/!1200,/0/default"
+  },
+
+  
+  
 ];
 
 // Select Elements
@@ -116,22 +120,15 @@ const heading = document.querySelector("main h2");
 
 // Temple Cards
 function displayTemples(templeList) {
-
   gallery.innerHTML = "";
-
   templeList.forEach((temple) => {
-
     const card = document.createElement("section");
 
     card.innerHTML = `
       <h3>${temple.templeName}</h3>
-
       <p><strong>Location:</strong> ${temple.location}</p>
-
       <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
-
       <p><strong>Area:</strong> ${temple.area.toLocaleString()} sq ft</p>
-
       <img src="${temple.imageUrl}" 
            alt="${temple.templeName}"
            loading="lazy">
@@ -147,22 +144,16 @@ displayTemples(temples);
 
 // HOME
 document.querySelector("#home").addEventListener("click", (e) => {
-
   e.preventDefault();
-
   heading.textContent = "Temple Gallery";
-
   displayTemples(temples);
 
 });
 
 // OLD
 document.querySelector("#old").addEventListener("click", (e) => {
-
   e.preventDefault();
-
   heading.textContent = "Old Temples";
-
   const oldTemples = temples.filter((temple) =>
     parseInt(temple.dedicated) < 1900
   );
@@ -173,9 +164,7 @@ document.querySelector("#old").addEventListener("click", (e) => {
 
 // NEW
 document.querySelector("#new").addEventListener("click", (e) => {
-
   e.preventDefault();
-
   heading.textContent = "New Temples";
 
   const newTemples = temples.filter((temple) =>
@@ -188,9 +177,7 @@ document.querySelector("#new").addEventListener("click", (e) => {
 
 // LARGE
 document.querySelector("#large").addEventListener("click", (e) => {
-
   e.preventDefault();
-
   heading.textContent = "Large Temples";
 
   const largeTemples = temples.filter((temple) =>
@@ -203,9 +190,7 @@ document.querySelector("#large").addEventListener("click", (e) => {
 
 // SMALL
 document.querySelector("#small").addEventListener("click", (e) => {
-
   e.preventDefault();
-
   heading.textContent = "Small Temples";
 
   const smallTemples = temples.filter((temple) =>
