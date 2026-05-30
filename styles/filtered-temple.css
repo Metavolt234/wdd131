@@ -1,17 +1,13 @@
 :root {
-    --primary: #e6ded6;
-    --secondary: #af8753e8;
-    --accent: #e6ded6;
+    --primary: #0D5D56;
+    --secondary: #329F5B;
+    --accent: #0C8346;
 
-    --background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
-    --card-bg: rgba(255, 255, 255, 0.85);
-
+    --background: #64c5c9;
     --text-light: #ffffff;
-    --text-dark: #1d3d69;
 
-    --shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
-
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
