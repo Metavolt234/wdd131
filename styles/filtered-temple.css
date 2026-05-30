@@ -1,5 +1,5 @@
 :root {
-    --primary: #e6bd81;
+    --primary: #e6ded6;
     --secondary: #af8753e8;
     --accent: #e6ded6;
 
@@ -65,7 +65,7 @@ nav a {
 
 nav a:hover {
     background: var(--accent);
-    color: #000;
+    color: #f3e0e0;
 }
 
 nav.open a {
