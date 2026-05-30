@@ -1,13 +1,13 @@
 :root {
-    --primary: #14532D;
-    --secondary: #22C55E;
-    --accent: #FBBF24;
+    --primary: #d88e1f;
+    --secondary: #915716e8;
+    --accent: #b1693f;
 
     --background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
     --card-bg: rgba(255, 255, 255, 0.85);
 
     --text-light: #ffffff;
-    --text-dark: #1F2937;
+    --text-dark: #1d3d69;
 
     --shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
@@ -56,7 +56,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 1rem;
     display: none;
