@@ -1,0 +1,56 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Sections */
+section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Headings */
+h1, h2 {
+    color: #2e7d32;
+}
+
+/* Color Boxes */
+.color-box {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.green {
+    background-color: #2e7d32;
+}
+
+.yellow {
+    background-color: #f9a825;
+    color: black;
+}
+
+.gray {
+    background-color: #333333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+}
