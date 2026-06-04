@@ -22,8 +22,13 @@ section {
     margin: 20px 0;
     padding: 20px;
     border-radius: 10px;
+    align-items: center;
+
 }
 
+.wireframes {
+align-items: center;
+}
 /* Headings */
 h1,
 h2 {
