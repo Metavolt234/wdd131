@@ -2,183 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Product Review Form - BookHaven</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review Form</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/form.js" defer></script>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <h1>BookHaven</h1>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="form.html" class="active">Write a Review</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+<header>
+    <h1>Product Review Form</h1>
+</header>
+
+<main>
+    <form method="get" action="review.html">
+
+        <div class="form-group">
+            <label for="product">Product Name *</label>
+            <select id="product" name="product" required>
+                <option value="" disabled selected>Select a Product ...</option>
+            </select>
         </div>
-    </header>
 
-    <main class="review-container">
-        <div class="container">
-            <div class="review-header">
-                <h1>Product Review Form</h1>
-                <p>Share your experience with our products. Your feedback helps us improve!</p>
-            </div>
+        <fieldset>
+            <legend>Overall Rating *</legend>
 
-            <form class="review-form" action="review.html" method="get">
-                <!-- Product Name Field -->
-                <div class="form-group">
-                    <label for="product-name">Product Name <span class="required">*</span></label>
-                    <select id="product-name" name="productName" required>
-                        <option value="" disabled selected>Select a Product ...</option>
-                    </select>
-                    <span class="error-message" id="product-error">Please select a product</span>
-                </div>
+            <label>
+                <input type="radio" id="rating1" name="rating" value="1" required>
+                ☆
+            </label>
 
-                <!-- Overall Rating Field -->
-                <div class="form-group">
-                    <label>Overall Rating <span class="required">*</span></label>
-                    <div class="rating-container" id="rating-container">
-                        <div class="rating-options">
-                            <label class="rating-option">
-                                <input type="radio" name="rating" value="1" required>
-                                <span class="star-rating">★☆☆☆☆</span>
-                                <span class="rating-label">Poor</span>
-                            </label>
-                            <label class="rating-option">
-                                <input type="radio" name="rating" value="2">
-                                <span class="star-rating">★★☆☆☆</span>
-                                <span class="rating-label">Fair</span>
-                            </label>
-                            <label class="rating-option">
-                                <input type="radio" name="rating" value="3">
-                                <span class="star-rating">★★★☆☆</span>
-                                <span class="rating-label">Good</span>
-                            </label>
-                            <label class="rating-option">
-                                <input type="radio" name="rating" value="4">
-                                <span class="star-rating">★★★★☆</span>
-                                <span class="rating-label">Very Good</span>
-                            </label>
-                            <label class="rating-option">
-                                <input type="radio" name="rating" value="5">
-                                <span class="star-rating">★★★★★</span>
-                                <span class="rating-label">Excellent</span>
-                            </label>
-                        </div>
-                    </div>
-                    <span class="error-message" id="rating-error">Please select a rating</span>
-                </div>
+            <label>
+                <input type="radio" id="rating2" name="rating" value="2">
+                ☆☆
+            </label>
 
-                <!-- Date of Installation Field -->
-                <div class="form-group">
-                    <label for="installation-date">Date of Installation <span class="required">*</span></label>
-                    <input type="date" id="installation-date" name="installationDate" required>
-                    <span class="error-message" id="date-error">Please select the installation date</span>
-                </div>
+            <label>
+                <input type="radio" id="rating3" name="rating" value="3">
+                ☆☆☆
+            </label>
 
-                <!-- Useful Features Field -->
-                <div class="form-group">
-                    <label>Useful Features</label>
-                    <p class="field-hint">Select all features that you found useful</p>
-                    <div class="checkbox-group">
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="features" value="ease-of-use">
-                            <span>Ease of Use</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="features" value="performance">
-                            <span>Performance</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="features" value="design">
-                            <span>Design & Appearance</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="features" value="customer-support">
-                            <span>Customer Support</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="features" value="value-for-money">
-                            <span>Value for Money</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="features" value="documentation">
-                            <span>Documentation</span>
-                        </label>
-                    </div>
-                </div>
+            <label>
+                <input type="radio" id="rating4" name="rating" value="4">
+                ☆☆☆☆
+            </label>
 
-                <!-- Written Review Field -->
-                <div class="form-group">
-                    <label for="written-review">Written Review</label>
-                    <textarea id="written-review" name="review" rows="5" placeholder="Tell us about your experience with this product. What did you like? What could be improved?"></textarea>
-                    <span class="field-hint">Minimum 10 characters recommended</span>
-                </div>
+            <label>
+                <input type="radio" id="rating5" name="rating" value="5">
+                ☆☆☆☆☆
+            </label>
+        </fieldset>
 
-                <!-- User Name Field -->
-                <div class="form-group">
-                    <label for="user-name">Your Name</label>
-                    <input type="text" id="user-name" name="userName" placeholder="Enter your name (optional)">
-                </div>
-
-                <!-- Submit Button -->
-                <div class="form-actions">
-                    <button type="submit" class="btn-submit">Submit Review</button>
-                    <button type="reset" class="btn-reset">Clear Form</button>
-                </div>
-            </form>
+        <div class="form-group">
+            <label for="installDate">Date of Installation *</label>
+            <input type="date" id="installDate" name="installDate" required>
         </div>
-    </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>BookHaven</h3>
-                    <p>Your literary sanctuary since 2010. We're passionate about connecting readers with their next great read.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="form.html">Write a Review</a></li>
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#">Fiction</a></li>
-                        <li><a href="#">Non-Fiction</a></li>
-                        <li><a href="#">Science Fiction</a></li>
-                        <li><a href="#">Romance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>Email: info@bookhaven.com</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>123 Book Street, Literature City</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 BookHaven. All rights reserved.</p>
-            </div>
+        <fieldset>
+            <legend>Useful Features</legend>
+
+            <label>
+                <input type="checkbox" id="durability" name="features" value="Durability">
+                Durability
+            </label>
+
+            <label>
+                <input type="checkbox" id="easeOfUse" name="features" value="Ease of Use">
+                Ease of Use
+            </label>
+
+            <label>
+                <input type="checkbox" id="performance" name="features" value="Performance">
+                Performance
+            </label>
+
+            <label>
+                <input type="checkbox" id="design" name="features" value="Design">
+                Design
+            </label>
+        </fieldset>
+
+        <div class="form-group">
+            <label for="review">Written Review</label>
+            <textarea id="review" name="review" rows="5"></textarea>
         </div>
-    </footer>
 
-    <script src="scripts/main.js"></script>
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username">
+        </div>
+
+        <input type="submit" value="Submit Review">
+
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2026 | Your Name | WDD 131</p>
+</footer>
+
 </body>
 </html>

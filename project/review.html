@@ -3,96 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Submitted - BookHaven</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Review Submitted</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/review.js" defer></script>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <h1>BookHaven</h1>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="form.html">Write a Review</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
 
-    <main class="confirmation-container">
-        <div class="container">
-            <div class="confirmation-card">
-                <div class="success-icon">✓</div>
-                <h1>Thank You for Your Review!</h1>
-                <p>Your feedback helps us improve our products and services.</p>
-                
-                <div class="review-summary" id="review-summary">
-                    <h2>Review Summary</h2>
-                    <div id="summary-content"></div>
-                </div>
+<header>
+    <h1>Review Submitted</h1>
+</header>
 
-                <div class="counter-section">
-                    <div class="counter-card">
-                        <div class="counter-number" id="review-counter">0</div>
-                        <div class="counter-label">Total Reviews Submitted</div>
-                    </div>
-                </div>
+<main>
+    <section class="confirmation">
+        <h2>Thank You!</h2>
+        <p>Your product review has been submitted successfully.</p>
 
-                <div class="confirmation-actions">
-                    <a href="form.html" class="btn-write-another">Write Another Review</a>
-                    <a href="#" class="btn-home">Back to Home</a>
-                </div>
-            </div>
-        </div>
-    </main>
+        <p>
+            Total Reviews Submitted:
+            <strong id="reviewCount">0</strong>
+        </p>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>BookHaven</h3>
-                    <p>Your literary sanctuary since 2010. We're passionate about connecting readers with their next great read.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="form.html">Write a Review</a></li>
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#">Fiction</a></li>
-                        <li><a href="#">Non-Fiction</a></li>
-                        <li><a href="#">Science Fiction</a></li>
-                        <li><a href="#">Romance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>Email: info@bookhaven.com</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>123 Book Street, Literature City</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 BookHaven. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        <a href="form.html">Submit Another Review</a>
+    </section>
+</main>
 
-    <script src="js/main.js"></script>
+<footer>
+    <p>&copy; 2026 | Your Name | WDD 131</p>
+</footer>
+
 </body>
 </html>
