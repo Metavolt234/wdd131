@@ -1,3 +1,69 @@
+// ========== IMAGE CAROUSEL FUNCTIONALITY ==========
+function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    
+    if (!slides.length) return;
+    
+    let currentIndex = 0;
+    let autoInterval;
+    
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.dot');
+    
+    function goToSlide(index) {
+        slides[currentIndex].classList.remove('active');
+        dots[currentIndex].classList.remove('active');
+        currentIndex = index;
+        slides[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+        resetAutoPlay();
+    }
+    
+    function nextSlide() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= slides.length) newIndex = 0;
+        goToSlide(newIndex);
+    }
+    
+    function prevSlide() {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        goToSlide(newIndex);
+    }
+    
+    function startAutoPlay() {
+        autoInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function resetAutoPlay() {
+        clearInterval(autoInterval);
+        startAutoPlay();
+    }
+    
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    startAutoPlay();
+    
+    // Pause on hover
+    const carousel = document.querySelector('.carousel-container');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => clearInterval(autoInterval));
+        carousel.addEventListener('mouseleave', startAutoPlay);
+    }
+}
+
 // ========== FOOTER FUNCTIONALITY: Current Year, Last Modified, Visit Counter ==========
 function initFooter() {
     // Set current year
@@ -46,7 +112,6 @@ function initHomeStats() {
     const statsContainer = document.getElementById('statsContainer');
     if (!statsContainer) return;
 
-    // Array of stat objects
     const farmingStats = [
         { label: "Water Saved (Drip)", value: "60%", icon: "💧" },
         { label: "Yield Increase", value: "30%", icon: "🌾" },
@@ -65,7 +130,6 @@ function initHomeStats() {
         `).join('');
     }
 
-    // Load from localStorage or use default
     const savedStats = localStorage.getItem('agritechStats');
     const statsNote = document.getElementById('statsNote');
     if (savedStats) {
@@ -98,7 +162,7 @@ function initHomeStats() {
     }
 }
 
-// ========== CROP RECOMMENDATION (Conditional branching + arrays) ==========
+// ========== CROP RECOMMENDATION ==========
 function initCropTool() {
     const regionSelect = document.getElementById('regionSelect');
     const getBtn = document.getElementById('getCropBtn');
@@ -108,18 +172,16 @@ function initCropTool() {
     const cropDatabase = {
         dry: ["Sorghum", "Millet", "Cowpeas", "Cactus Pear", "Drought-Tolerant Maize"],
         temperate: ["Wheat", "Barley", "Apples", "Lentils", "Oats"],
-        tropical: ["Maize", "Cassava", "Plantains", "Rice", "Yams"]
+        tropical: ["Maize", "Cassava", "Plantains", "Rice", "Yams", "Coffee"]
     };
 
     getBtn.addEventListener('click', () => {
         const region = regionSelect.value;
-        const crops = cropDatabase[region] || ["Fallow", "Cover crops"];
+        const crops = cropDatabase[region];
         resultDiv.innerHTML = `<strong>🌱 Recommended crops for ${region.toUpperCase()} region:</strong><br> ${crops.join(" • ")}`;
-        // Save last recommendation to localStorage (array method)
         localStorage.setItem('lastCropAdvice', JSON.stringify({ region, crops, timestamp: new Date().toLocaleString() }));
     });
 
-    // load previous
     const savedCrop = localStorage.getItem('lastCropAdvice');
     if (savedCrop && resultDiv) {
         const data = JSON.parse(savedCrop);
@@ -127,7 +189,7 @@ function initCropTool() {
     }
 }
 
-// ========== LIVESTOCK FEED CALCULATOR (Objects, array methods, localStorage) ==========
+// ========== LIVESTOCK FEED CALCULATOR ==========
 function initLivestockCalc() {
     const calcBtn = document.getElementById('calcFeedBtn');
     if (!calcBtn) return;
@@ -135,11 +197,7 @@ function initLivestockCalc() {
     const goatInput = document.getElementById('goatCount');
     const resultDiv = document.getElementById('feedResult');
 
-    // object for feed requirements
-    const feedRates = {
-        cattle: 12, // kg per day
-        goat: 2.5
-    };
+    const feedRates = { cattle: 12, goat: 2.5 };
 
     function calculateFeed(cattle, goats) {
         const total = (cattle * feedRates.cattle) + (goats * feedRates.goat);
@@ -179,7 +237,7 @@ function initLivestockCalc() {
     }
 }
 
-// ========== WATER SAVINGS ESTIMATOR (conditional + template literals) ==========
+// ========== WATER SAVINGS ESTIMATOR ==========
 function initWaterTool() {
     const calcBtn = document.getElementById('calcWaterBtn');
     if (!calcBtn) return;
@@ -188,7 +246,7 @@ function initWaterTool() {
     calcBtn.addEventListener('click', () => {
         let acres = parseFloat(fieldInput.value);
         if (isNaN(acres) || acres <= 0) acres = 1;
-        const traditionalWater = acres * 45000;  // gallons per acre per season approx
+        const traditionalWater = acres * 45000;
         const dripWater = acres * 18000;
         const saved = traditionalWater - dripWater;
         const percentSaved = ((saved / traditionalWater) * 100).toFixed(0);
@@ -199,7 +257,7 @@ function initWaterTool() {
     });
 }
 
-// ========== CONTACT FORM with localStorage, DOM events ==========
+// ========== CONTACT FORM ==========
 function initContactForm() {
     const form = document.getElementById('consultForm');
     if (!form) return;
@@ -207,7 +265,6 @@ function initContactForm() {
     const showBtn = document.getElementById('showSubmissionsBtn');
     const submissionsDiv = document.getElementById('submissionsList');
 
-    // Load existing submissions from localStorage (array)
     let submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
 
     form.addEventListener('submit', (e) => {
@@ -246,6 +303,7 @@ function initContactForm() {
 
 // ========== INITIALIZE ALL ==========
 document.addEventListener('DOMContentLoaded', () => {
+    initCarousel();      // Initialize image carousel
     initFooter();        // Sets year, lastModified, visit counter
     initMobileMenu();    // Mobile navigation
     initHomeStats();     // Homepage stats with localStorage

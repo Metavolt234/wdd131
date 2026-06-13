@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 - agritechfarminghub project</title>
+    <title>WDD 131 - AgriTech UG - Modern Farming Solutions</title>
 
     <meta name="description" content="Agritechfarminghub project (Tumwesige Nelson). Farming techniques and help to farmers all over the world.">
     <meta name="author" content="Tumwesige Nelson">
@@ -12,11 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
-    
+    <link rel="stylesheet" href="styles/styles.css"> 
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="scripts/main.js" defer></script>
+
 </head>
 <body>
 
@@ -39,11 +39,43 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Smart Farming for a Sustainable Future</h1>
-            <p>Discover modern agricultural techniques that boost productivity while protecting our planet. Join the AgriTech revolution today.</p>
-            <button class="btn-primary" id="exploreBtn">Explore Methods →</button>
+        <!-- Hero Section with Sliding Image Carousel -->
+        <section class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carouselSlides">
+                    <div class="carousel-slide active">
+                        <img src="https://images.pexels.com/photos/265216/pexels-photo-265216.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Modern Tractor in Field" loading="lazy">
+                        <div class="carousel-caption">
+                            <h2>Modern Machinery</h2>
+                            <p>Advanced tractors and harvesters boost efficiency by 40%</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.pexels.com/photos/858977/pexels-photo-858977.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Drip Irrigation System" loading="lazy">
+                        <div class="carousel-caption">
+                            <h2>Smart Irrigation</h2>
+                            <p>Save up to 70% water with drip irrigation technology</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sustainable Farming" loading="lazy">
+                        <div class="carousel-caption">
+                            <h2>Sustainable Agriculture</h2>
+                            <p>Eco-friendly practices for future generations</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.pexels.com/photos/2387831/pexels-photo-2387831.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Crop Harvesting" loading="lazy">
+                        <div class="carousel-caption">
+                            <h2>High-Yield Crops</h2>
+                            <p>Increase productivity with modern techniques</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn" id="prevBtn">❮</button>
+                <button class="carousel-btn next-btn" id="nextBtn">❯</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
         </section>
 
         <!-- Featured Categories Grid -->
@@ -103,6 +135,5 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
