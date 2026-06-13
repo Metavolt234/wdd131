@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriTech Hub - Smart Irrigation & Technology</title>
+    <title>WDD 131 - agritechfarminghub project</title>
+
+    <meta name="description" content="Agritechfarminghub project (Tumwesige Nelson). Farming techniques and help to farmers all over the world.">
+    <meta name="author" content="Tumwesige Nelson">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
 
 <header>
     <div class="container navbar">
-        <div class="logo"><div class="logo-icon">💧</div><h2>AgriTech Hub</h2></div>
+        <div class="logo">
+            <div class="logo-icon">💧</div>
+            <h2>AgriTech Hub</h2>
+        </div>
         <button class="menu-toggle" id="menuToggle4">☰</button>
         <ul class="nav-links" id="navLinks4">
             <li><a href="index.html">Home</a></li>
@@ -49,7 +63,7 @@
             </div>
         </div>
 
-        <!-- Dynamic water saving calculator (conditional branching, array method) -->
+        <!-- Dynamic water saving calculator -->
         <section class="tool-section">
             <h2>💧 Water Savings Estimator</h2>
             <p>Compare traditional flood irrigation vs. drip irrigation.</p>
@@ -59,10 +73,17 @@
             <div id="waterResult" class="result-card"></div>
         </section>
     </div>
-</footer>
+</main>
+
 <footer>
-    <div class="container footer-bottom"><p>© 2026 AgriTech Farming Hub — Tumwesige Nelson | <a href="references.html">References</a></p></div>
+    <div class="container">
+        <p>&copy;<span id="currentyear"></span> | Tumwesige Nelson | Uganda</p>
+        <p id="lastModified"></p>
+        <p>User Visits: <span id="visit-count">0</span></p>
+        <p class="footer-links"><a href="references.html">References</a></p>
+    </div>
 </footer>
-<script src="scripts/main.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,34 @@
+// ========== FOOTER FUNCTIONALITY: Current Year, Last Modified, Visit Counter ==========
+function initFooter() {
+    // Set current year
+    const yearSpan = document.getElementById('currentyear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+    
+    // Set last modified date
+    const lastModifiedP = document.getElementById('lastModified');
+    if (lastModifiedP) {
+        lastModifiedP.textContent = `Last Modified: ${document.lastModified}`;
+    }
+    
+    // Visit counter using localStorage
+    const visitCountSpan = document.getElementById('visit-count');
+    if (visitCountSpan) {
+        let visitCount = localStorage.getItem('agritechVisitCount');
+        if (visitCount === null) {
+            visitCount = 1;
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+        localStorage.setItem('agritechVisitCount', visitCount);
+        visitCountSpan.textContent = visitCount;
+    }
+}
+
 // ========== MOBILE MENU TOGGLE (All pages) ==========
 function initMobileMenu() {
-    const toggles = ['menuToggle', 'menuToggle2', 'menuToggle3', 'menuToggle4', 'menuToggle5'];
+    const toggles = ['menuToggle', 'menuToggle2', 'menuToggle3', 'menuToggle4', 'menuToggle5', 'menuToggleRef'];
     toggles.forEach(id => {
         const btn = document.getElementById(id);
         if (btn) {
@@ -39,9 +67,10 @@ function initHomeStats() {
 
     // Load from localStorage or use default
     const savedStats = localStorage.getItem('agritechStats');
+    const statsNote = document.getElementById('statsNote');
     if (savedStats) {
         renderStats(JSON.parse(savedStats));
-        document.getElementById('statsNote').innerHTML = "📀 Loaded from your saved preferences.";
+        if (statsNote) statsNote.innerHTML = "📀 Loaded from your saved preferences.";
     } else {
         renderStats(farmingStats);
     }
@@ -57,7 +86,7 @@ function initHomeStats() {
             ];
             renderStats(newStats);
             localStorage.setItem('agritechStats', JSON.stringify(newStats));
-            document.getElementById('statsNote').innerHTML = "✅ New statistics saved to localStorage!";
+            if (statsNote) statsNote.innerHTML = "✅ New statistics saved to localStorage!";
         });
     }
 
@@ -77,9 +106,9 @@ function initCropTool() {
     if (!getBtn || !regionSelect) return;
 
     const cropDatabase = {
-        dry: ["Sorghum", "Millet", "Cowpeas", "Cactus Pear"],
-        temperate: ["Wheat", "Barley", "Apples", "Lentils"],
-        tropical: ["Maize", "Cassava", "Plantains", "Rice"]
+        dry: ["Sorghum", "Millet", "Cowpeas", "Cactus Pear", "Drought-Tolerant Maize"],
+        temperate: ["Wheat", "Barley", "Apples", "Lentils", "Oats"],
+        tropical: ["Maize", "Cassava", "Plantains", "Rice", "Yams"]
     };
 
     getBtn.addEventListener('click', () => {
@@ -162,10 +191,11 @@ function initWaterTool() {
         const traditionalWater = acres * 45000;  // gallons per acre per season approx
         const dripWater = acres * 18000;
         const saved = traditionalWater - dripWater;
+        const percentSaved = ((saved / traditionalWater) * 100).toFixed(0);
         resultDiv.innerHTML = `<strong>💧 Water Savings Analysis</strong><br>
         🌾 Traditional flood irrigation: ${traditionalWater.toLocaleString()} gallons<br>
         💧 Drip irrigation: ${dripWater.toLocaleString()} gallons<br>
-        ✅ You save <strong>${saved.toLocaleString()} gallons</strong> per season! (${((saved/traditionalWater)*100).toFixed(0)}% less water)`;
+        ✅ You save <strong>${saved.toLocaleString()} gallons</strong> per season! (${percentSaved}% less water)`;
     });
 }
 
@@ -200,14 +230,14 @@ function initContactForm() {
     if (showBtn && submissionsDiv) {
         showBtn.addEventListener('click', () => {
             if (submissions.length === 0) {
-                submissionsDiv.innerHTML = "No saved inquiries yet.";
+                submissionsDiv.innerHTML = "No saved inquiries yet. Submit a form first!";
                 return;
             }
             submissionsDiv.innerHTML = submissions.map(sub => `
-                <div style="border-bottom:1px solid #ccc; margin-bottom:10px;">
+                <div style="border-bottom:1px solid #ccc; margin-bottom:10px; padding-bottom:8px;">
                     <strong>${sub.name}</strong> (${sub.email}) - ${sub.farmType}<br>
-                    📝 ${sub.message.substring(0, 80)}<br>
-                    <small>${sub.date}</small>
+                    📝 ${sub.message.substring(0, 100)}${sub.message.length > 100 ? '...' : ''}<br>
+                    <small>📅 ${sub.date}</small>
                 </div>
             `).join('');
         });
@@ -216,10 +246,11 @@ function initContactForm() {
 
 // ========== INITIALIZE ALL ==========
 document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
-    initHomeStats();
-    initCropTool();
-    initLivestockCalc();
-    initWaterTool();
-    initContactForm();
+    initFooter();        // Sets year, lastModified, visit counter
+    initMobileMenu();    // Mobile navigation
+    initHomeStats();     // Homepage stats with localStorage
+    initCropTool();      // Crop recommendation tool
+    initLivestockCalc(); // Livestock feed calculator
+    initWaterTool();     // Water savings estimator
+    initContactForm();   // Contact form handling
 });
