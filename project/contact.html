@@ -1,83 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Contact</title>
-
-<link rel="stylesheet" href="styles/styles.css">
-<script src="scripts/main.js" defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech Hub - Contact & Consultation</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-
-<h1>Contact Us</h1>
-
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="crops.html">Crop Production</a></li>
-<li><a href="livestock.html">Livestock & Tech</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-
+    <div class="container navbar">
+        <div class="logo"><div class="logo-icon">📞</div><h2>AgriTech Hub</h2></div>
+        <button class="menu-toggle" id="menuToggle5">☰</button>
+        <ul class="nav-links" id="navLinks5">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="crops.html">Crops</a></li>
+            <li><a href="livestock.html">Livestock</a></li>
+            <li><a href="technology.html">Tech & Irrigation</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </div>
 </header>
 
 <main>
+    <div class="container">
+        <section class="page-header">
+            <h1>Request Consultation</h1>
+            <p>Have questions about modern farming? Fill out the form and our agronomist will reach out.</p>
+        </section>
 
-<form id="contactForm">
+        <div class="form-container">
+            <form id="consultForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="farmType">Farm Type</label>
+                    <select id="farmType">
+                        <option value="crop">Crop Farming</option>
+                        <option value="livestock">Livestock</option>
+                        <option value="mixed">Mixed / Agroforestry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message / Questions</label>
+                    <textarea id="message" rows="4" placeholder="Tell us about your farming challenges..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit Inquiry</button>
+                <div id="formFeedback" class="form-feedback"></div>
+            </form>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>📧 hello@agritechhub.org</p>
+                <p>📞 +256 700 123 456</p>
+                <p>📍 Kampala, Uganda / Global Support</p>
+            </div>
+        </div>
 
-<label>Name</label>
-<input type="text" required>
-
-<label>Email</label>
-<input type="email" required>
-
-<label>Farm Type</label>
-
-<select required>
-
-<option>Dairy</option>
-<option>Poultry</option>
-<option>Crop Farming</option>
-
-</select>
-
-<label>Message</label>
-
-<textarea required></textarea>
-
-<button type="submit">
-Send Message
-</button>
-
-</form>
-
-<div id="message"></div>
-
+        <!-- LocalStorage display for previous submissions -->
+        <section class="tool-section">
+            <h3>📋 Recent Submissions (Local Demo)</h3>
+            <button id="showSubmissionsBtn" class="btn-outline">Show Saved Inquiries</button>
+            <div id="submissionsList" class="result-card"></div>
+        </section>
+    </div>
 </main>
-
 <footer>
-
-<p>
-© <span id="currentYear"></span>
-AgriTech Farming Hub
-</p>
-
-<p>
-Last Modified:
-<span id="lastModified"></span>
-</p>
-
-<a href="references.html">References</a>
-
+    <div class="container footer-bottom"><p>© 2026 AgriTech Farming Hub — Tumwesige Nelson | <a href="references.html">References</a></p></div>
 </footer>
-
+<script src="scripts/main.js"></script>
 </body>
 </html>

@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Livestock Farming</title>
-
-<link rel="stylesheet" href="styles/styles.css">
-<script src="scripts/main.js" defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech Hub - Modern Livestock</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-
-<h1>Livestock & Agricultural Technology</h1>
-
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="crops.html">Crop Production</a></li>
-<li><a href="livestock.html">Livestock & Tech</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-
+    <div class="container navbar">
+        <div class="logo"><div class="logo-icon">🐄</div><h2>AgriTech Hub</h2></div>
+        <button class="menu-toggle" id="menuToggle3">☰</button>
+        <ul class="nav-links" id="navLinks3">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="crops.html">Crops</a></li>
+            <li><a href="livestock.html" class="active">Livestock</a></li>
+            <li><a href="technology.html">Tech & Irrigation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 </header>
 
 <main>
+    <div class="container">
+        <section class="page-header">
+            <h1>Modern Livestock Management</h1>
+            <p>Healthy animals, ethical practices, and technology-driven monitoring.</p>
+        </section>
 
-<h2>Livestock Enterprises</h2>
+        <div class="content-grid">
+            <article class="main-content">
+                <h2>Rotational Grazing Systems</h2>
+                <img src="https://placehold.co/800x400/f5f5dc/2e7d32?text=Cattle+in+Rotational+Grazing" alt="Rotational grazing" loading="lazy" class="responsive-img">
+                <p>Rotational grazing improves pasture health, increases carbon sequestration, and boosts meat/milk quality. Livestock are moved between paddocks, allowing grass to recover.</p>
+                <h2>Smart Health Monitoring</h2>
+                <p>Wearable sensors track temperature, activity, and feeding patterns. Early disease detection reduces antibiotic use and mortality rates by 25%.</p>
+                <h2>Sustainable Feed Solutions</h2>
+                <p>Insect-based proteins and drought-resistant forages lower the environmental footprint while maintaining animal growth rates.</p>
+            </article>
+            <aside class="sidebar">
+                <div class="tip-box"><h3>🐄 Did You Know?</h3><p>Rotational grazing can increase milk production by 15-20% compared to continuous grazing.</p></div>
+            </aside>
+        </div>
 
-<div id="livestock-container"></div>
-
-</main>
-
-<footer>
-
-<p>
-© <span id="currentYear"></span>
-AgriTech Farming Hub
-</p>
-
-<p>
-Last Modified:
-<span id="lastModified"></span>
-</p>
-
-<a href="references.html">References</a>
-
+        <!-- Livestock calculator using array and localStorage -->
+        <section class="tool-section">
+            <h2>Livestock Feed Calculator</h2>
+            <label>Number of Cattle:</label>
+            <input type="number" id="cattleCount" min="0" value="5">
+            <label>Number of Goats:</label>
+            <input type="number" id="goatCount" min="0" value="3">
+            <button id="calcFeedBtn" class="btn-primary">Calculate Daily Feed (kg)</button>
+            <div id="feedResult" class="result-card"></div>
+            <button id="saveFeedDataBtn" class="btn-outline">Save to Local Storage</button>
+            <button id="loadFeedDataBtn" class="btn-outline">Load Saved Data</button>
+        </section>
+    </div>
 </footer>
-
+<footer class="footer-simple">
+    <div class="container footer-content"><div class="footer-col"><p>© 2026 AgriTech Farming Hub — Tumwesige Nelson | <a href="references.html">References</a></p></div></div>
+</footer>
+<script src="scripts/main.js"></script>
 </body>
 </html>

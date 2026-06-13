@@ -1,57 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Crop Production</title>
-
-<link rel="stylesheet" href="styles/styles.css">
-<script src="scripts/main.js" defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech Hub - Modern Crop Farming</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-
-<h1>Crop Production</h1>
-
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="crops.html">Crop Production</a></li>
-<li><a href="livestock.html">Livestock & Tech</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-
+    <div class="container navbar">
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <h2>AgriTech Hub</h2>
+        </div>
+        <button class="menu-toggle" id="menuToggle2">☰</button>
+        <ul class="nav-links" id="navLinks2">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="crops.html" class="active">Crops</a></li>
+            <li><a href="livestock.html">Livestock</a></li>
+            <li><a href="technology.html">Tech & Irrigation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 </header>
 
 <main>
+    <div class="container">
+        <section class="page-header">
+            <h1>Modern Crop Production</h1>
+            <p>Innovative techniques to increase yield while preserving soil health.</p>
+        </section>
 
-<h2>Popular Crops</h2>
+        <section class="content-grid">
+            <article class="main-content">
+                <h2>Precision Agriculture</h2>
+                <img src="https://placehold.co/800x400/f5f5dc/2e7d32?text=Crop+Field+with+Drones" alt="Precision farming illustration" loading="lazy" class="responsive-img">
+                <p>Precision farming uses GPS, IoT sensors, and data analytics to optimize every step of crop production. Farmers can monitor soil moisture, nutrient levels, and pest activity in real time, reducing waste and increasing yields by up to 30%.</p>
+                
+                <h2>Sustainable Pest Control</h2>
+                <p>Integrated Pest Management (IPM) combines biological control, habitat manipulation, and resistant varieties. This eco-friendly approach reduces chemical pesticides by 70% while protecting beneficial insects.</p>
+                
+                <h2>High-Yield Techniques</h2>
+                <ul>
+                    <li><strong>Vertical Farming:</strong> Grow more with less land using stacked layers.</li>
+                    <li><strong>Hydroponics:</strong> Soil-less cultivation with 90% less water.</li>
+                    <li><strong>Crop Rotation:</strong> Improves soil fertility and breaks pest cycles.</li>
+                </ul>
+            </article>
+            <aside class="sidebar">
+                <div class="tip-box">
+                    <h3>🌾 Quick Tip</h3>
+                    <p>Intercropping maize with beans can increase land productivity by 40% and naturally fix nitrogen.</p>
+                </div>
+                <div class="tip-box">
+                    <h3>📊 Yield Comparison</h3>
+                    <ul>
+                        <li>Traditional: 2.5 tons/ha</li>
+                        <li>Modern methods: 4.8 tons/ha</li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
 
-<div id="crop-cards"></div>
-
+        <!-- Dynamic crop recommendation tool (JavaScript) -->
+        <section class="tool-section">
+            <h2>Crop Recommendation Tool</h2>
+            <p>Select your region to get the best crop suggestions:</p>
+            <select id="regionSelect">
+                <option value="dry">Dry / Arid Region</option>
+                <option value="temperate">Temperate Region</option>
+                <option value="tropical">Tropical Region</option>
+            </select>
+            <button id="getCropBtn" class="btn-primary">Recommend Crops</button>
+            <div id="cropResult" class="result-card"></div>
+        </section>
+    </div>
 </main>
 
 <footer>
-
-<p>
-© <span id="currentYear"></span>
-AgriTech Farming Hub
-</p>
-
-<p>
-Last Modified:
-<span id="lastModified"></span>
-</p>
-
-<a href="references.html">References</a>
-
+    <div class="container footer-content">
+        <div class="footer-col"><h3>AgriTech Farming Hub</h3><p>Sustainable innovation in agriculture.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="crops.html">Crops</a></li><li><a href="references.html">References</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 AgriTech Farming Hub — Tumwesige Nelson</p></div>
 </footer>
-
+<script src="scripts/main.js"></script>
 </body>
 </html>

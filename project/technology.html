@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech Hub - Smart Irrigation & Technology</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <div class="logo"><div class="logo-icon">💧</div><h2>AgriTech Hub</h2></div>
+        <button class="menu-toggle" id="menuToggle4">☰</button>
+        <ul class="nav-links" id="navLinks4">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="crops.html">Crops</a></li>
+            <li><a href="livestock.html">Livestock</a></li>
+            <li><a href="technology.html" class="active">Tech & Irrigation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <section class="page-header">
+            <h1>Agricultural Technology & Smart Irrigation</h1>
+            <p>Innovative solutions for water efficiency and automated farming.</p>
+        </section>
+
+        <div class="two-col">
+            <div class="tech-card">
+                <h3>💧 Drip Irrigation</h3>
+                <p>Delivers water directly to roots, reducing evaporation by 60%. Ideal for dry regions and high-value crops.</p>
+            </div>
+            <div class="tech-card">
+                <h3>📡 IoT Soil Sensors</h3>
+                <p>Real-time moisture and nutrient data sent to mobile apps, enabling precision watering schedules.</p>
+            </div>
+            <div class="tech-card">
+                <h3>🚜 Autonomous Tractors</h3>
+                <p>GPS-guided tractors reduce fuel use and optimize planting patterns, increasing efficiency by 20%.</p>
+            </div>
+            <div class="tech-card">
+                <h3>🐞 Biological Pest Control</h3>
+                <p>Use beneficial insects like ladybugs to control aphids, eliminating chemical pesticides.</p>
+            </div>
+        </div>
+
+        <!-- Dynamic water saving calculator (conditional branching, array method) -->
+        <section class="tool-section">
+            <h2>💧 Water Savings Estimator</h2>
+            <p>Compare traditional flood irrigation vs. drip irrigation.</p>
+            <label>Field Size (acres):</label>
+            <input type="number" id="fieldSize" value="10" min="1">
+            <button id="calcWaterBtn" class="btn-primary">Calculate Savings</button>
+            <div id="waterResult" class="result-card"></div>
+        </section>
+    </div>
+</footer>
+<footer>
+    <div class="container footer-bottom"><p>© 2026 AgriTech Farming Hub — Tumwesige Nelson | <a href="references.html">References</a></p></div>
+</footer>
+<script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,188 +1,225 @@
-// HOME PAGE
-
-const tipsContainer = document.querySelector("#tips-container");
-
-if (tipsContainer) {
-
-const tips = [
-"Use certified seeds",
-"Practice crop rotation",
-"Apply organic manure",
-"Use irrigation systems"
-];
-
-tips.forEach(tip => {
-
-tipsContainer.innerHTML += `
-<div class="card">
-<h3>Tip</h3>
-<p>${tip}</p>
-</div>
-`;
-
-});
-
+// ========== MOBILE MENU TOGGLE (All pages) ==========
+function initMobileMenu() {
+    const toggles = ['menuToggle', 'menuToggle2', 'menuToggle3', 'menuToggle4', 'menuToggle5'];
+    toggles.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const navId = id.replace('menuToggle', 'navLinks');
+                const nav = document.getElementById(navId);
+                if (nav) nav.classList.toggle('show');
+            });
+        }
+    });
 }
 
-// CROPS PAGE
+// ========== HOMEPAGE STATS (Objects, Arrays, Template Literals, localStorage) ==========
+function initHomeStats() {
+    const statsContainer = document.getElementById('statsContainer');
+    if (!statsContainer) return;
 
-const cropCards = document.querySelector("#crop-cards");
+    // Array of stat objects
+    const farmingStats = [
+        { label: "Water Saved (Drip)", value: "60%", icon: "💧" },
+        { label: "Yield Increase", value: "30%", icon: "🌾" },
+        { label: "Pesticide Reduction", value: "70%", icon: "🐞" },
+        { label: "CO₂ Sequestration", value: "+45%", icon: "🌍" }
+    ];
 
-if (cropCards) {
+    function renderStats(statsArray) {
+        if (!statsContainer) return;
+        statsContainer.innerHTML = statsArray.map(stat => `
+            <div class="stat-item">
+                <div class="stat-icon">${stat.icon}</div>
+                <div class="stat-number">${stat.value}</div>
+                <div class="stat-label">${stat.label}</div>
+            </div>
+        `).join('');
+    }
 
-const crops = [
+    // Load from localStorage or use default
+    const savedStats = localStorage.getItem('agritechStats');
+    if (savedStats) {
+        renderStats(JSON.parse(savedStats));
+        document.getElementById('statsNote').innerHTML = "📀 Loaded from your saved preferences.";
+    } else {
+        renderStats(farmingStats);
+    }
 
-{
-name:"Maize",
-season:"Rainy",
-image:"images/maize.jpg"
-},
+    const updateBtn = document.getElementById('updateStatsBtn');
+    if (updateBtn) {
+        updateBtn.addEventListener('click', () => {
+            const newStats = [
+                { label: "Efficiency Gain", value: "55%", icon: "⚙️" },
+                { label: "Water Reduction", value: "75%", icon: "💧" },
+                { label: "Soil Health", value: "+40%", icon: "🌱" },
+                { label: "Profit Boost", value: "25%", icon: "📈" }
+            ];
+            renderStats(newStats);
+            localStorage.setItem('agritechStats', JSON.stringify(newStats));
+            document.getElementById('statsNote').innerHTML = "✅ New statistics saved to localStorage!";
+        });
+    }
 
-{
-name:"Beans",
-season:"Rainy",
-image:"images/beans.jpg"
-},
-
-{
-name:"Tomatoes",
-season:"Dry",
-image:"images/tomatoes.jpg"
-},
-
-{
-name:"Coffee",
-season:"Rainy",
-image:"images/coffee.jpg"
+    const exploreBtn = document.getElementById('exploreBtn');
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', () => {
+            window.location.href = 'crops.html';
+        });
+    }
 }
 
-];
+// ========== CROP RECOMMENDATION (Conditional branching + arrays) ==========
+function initCropTool() {
+    const regionSelect = document.getElementById('regionSelect');
+    const getBtn = document.getElementById('getCropBtn');
+    const resultDiv = document.getElementById('cropResult');
+    if (!getBtn || !regionSelect) return;
 
-crops.forEach(crop => {
+    const cropDatabase = {
+        dry: ["Sorghum", "Millet", "Cowpeas", "Cactus Pear"],
+        temperate: ["Wheat", "Barley", "Apples", "Lentils"],
+        tropical: ["Maize", "Cassava", "Plantains", "Rice"]
+    };
 
-cropCards.innerHTML += `
-<div class="card">
+    getBtn.addEventListener('click', () => {
+        const region = regionSelect.value;
+        const crops = cropDatabase[region] || ["Fallow", "Cover crops"];
+        resultDiv.innerHTML = `<strong>🌱 Recommended crops for ${region.toUpperCase()} region:</strong><br> ${crops.join(" • ")}`;
+        // Save last recommendation to localStorage (array method)
+        localStorage.setItem('lastCropAdvice', JSON.stringify({ region, crops, timestamp: new Date().toLocaleString() }));
+    });
 
-<img
-src="${crop.image}"
-alt="${crop.name}"
-loading="lazy">
-
-<h3>${crop.name}</h3>
-
-<p>
-Growing Season:
-${crop.season}
-</p>
-
-</div>
-`;
-
-});
-
+    // load previous
+    const savedCrop = localStorage.getItem('lastCropAdvice');
+    if (savedCrop && resultDiv) {
+        const data = JSON.parse(savedCrop);
+        resultDiv.innerHTML = `<strong>🔄 Last saved advice (${data.timestamp}):</strong><br> Region: ${data.region} → ${data.crops.join(" • ")}`;
+    }
 }
 
-// LIVESTOCK PAGE
+// ========== LIVESTOCK FEED CALCULATOR (Objects, array methods, localStorage) ==========
+function initLivestockCalc() {
+    const calcBtn = document.getElementById('calcFeedBtn');
+    if (!calcBtn) return;
+    const cattleInput = document.getElementById('cattleCount');
+    const goatInput = document.getElementById('goatCount');
+    const resultDiv = document.getElementById('feedResult');
 
-const livestockContainer =
-document.querySelector("#livestock-container");
+    // object for feed requirements
+    const feedRates = {
+        cattle: 12, // kg per day
+        goat: 2.5
+    };
 
-if(livestockContainer){
+    function calculateFeed(cattle, goats) {
+        const total = (cattle * feedRates.cattle) + (goats * feedRates.goat);
+        return { cattle, goats, total: total.toFixed(1) };
+    }
 
-const livestock = [
+    calcBtn.addEventListener('click', () => {
+        let cattle = parseInt(cattleInput.value) || 0;
+        let goats = parseInt(goatInput.value) || 0;
+        if (cattle < 0) cattle = 0;
+        if (goats < 0) goats = 0;
+        const feedObj = calculateFeed(cattle, goats);
+        resultDiv.innerHTML = `🐮 ${feedObj.cattle} cattle + 🐐 ${feedObj.goats} goats → <strong>Total daily feed: ${feedObj.total} kg</strong>`;
+    });
 
-{
-name:"Dairy Farming",
-benefit:"Milk Production"
-},
-
-{
-name:"Poultry Farming",
-benefit:"Egg Production"
-},
-
-{
-name:"Goat Farming",
-benefit:"Meat Production"
-},
-
-{
-name:"Pig Farming",
-benefit:"Commercial Production"
+    const saveBtn = document.getElementById('saveFeedDataBtn');
+    const loadBtn = document.getElementById('loadFeedDataBtn');
+    if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            const data = { cattle: cattleInput.value, goats: goatInput.value, savedAt: new Date().toISOString() };
+            localStorage.setItem('livestockFeedData', JSON.stringify(data));
+            resultDiv.innerHTML += `<br>✅ Data saved to localStorage.`;
+        });
+    }
+    if (loadBtn) {
+        loadBtn.addEventListener('click', () => {
+            const saved = localStorage.getItem('livestockFeedData');
+            if (saved) {
+                const { cattle, goats } = JSON.parse(saved);
+                cattleInput.value = cattle;
+                goatInput.value = goats;
+                resultDiv.innerHTML = `📀 Loaded: Cattle=${cattle}, Goats=${goats}. Click calculate again.`;
+            } else {
+                resultDiv.innerHTML = `No saved data found.`;
+            }
+        });
+    }
 }
 
-];
-
-livestock.forEach(item=>{
-
-livestockContainer.innerHTML += `
-<div class="card">
-<h3>${item.name}</h3>
-<p>${item.benefit}</p>
-</div>
-`;
-
-});
-
+// ========== WATER SAVINGS ESTIMATOR (conditional + template literals) ==========
+function initWaterTool() {
+    const calcBtn = document.getElementById('calcWaterBtn');
+    if (!calcBtn) return;
+    const fieldInput = document.getElementById('fieldSize');
+    const resultDiv = document.getElementById('waterResult');
+    calcBtn.addEventListener('click', () => {
+        let acres = parseFloat(fieldInput.value);
+        if (isNaN(acres) || acres <= 0) acres = 1;
+        const traditionalWater = acres * 45000;  // gallons per acre per season approx
+        const dripWater = acres * 18000;
+        const saved = traditionalWater - dripWater;
+        resultDiv.innerHTML = `<strong>💧 Water Savings Analysis</strong><br>
+        🌾 Traditional flood irrigation: ${traditionalWater.toLocaleString()} gallons<br>
+        💧 Drip irrigation: ${dripWater.toLocaleString()} gallons<br>
+        ✅ You save <strong>${saved.toLocaleString()} gallons</strong> per season! (${((saved/traditionalWater)*100).toFixed(0)}% less water)`;
+    });
 }
 
-// CONTACT FORM
+// ========== CONTACT FORM with localStorage, DOM events ==========
+function initContactForm() {
+    const form = document.getElementById('consultForm');
+    if (!form) return;
+    const feedbackDiv = document.getElementById('formFeedback');
+    const showBtn = document.getElementById('showSubmissionsBtn');
+    const submissionsDiv = document.getElementById('submissionsList');
 
-const form =
-document.querySelector("#contactForm");
+    // Load existing submissions from localStorage (array)
+    let submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
 
-if(form){
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const farmType = document.getElementById('farmType').value;
+        const message = document.getElementById('message').value;
+        if (!name || !email) {
+            feedbackDiv.innerHTML = "❌ Please fill name and email.";
+            return;
+        }
+        const newSubmission = { name, email, farmType, message, date: new Date().toLocaleString() };
+        submissions.push(newSubmission);
+        localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+        feedbackDiv.innerHTML = `✅ Thank you ${name}! Your consultation request has been saved.`;
+        form.reset();
+    });
 
-form.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-document.querySelector("#message")
-.textContent =
-"Thank you for contacting us.";
-
-localStorage.setItem(
-"contact",
-"submitted"
-);
-
-});
-
+    if (showBtn && submissionsDiv) {
+        showBtn.addEventListener('click', () => {
+            if (submissions.length === 0) {
+                submissionsDiv.innerHTML = "No saved inquiries yet.";
+                return;
+            }
+            submissionsDiv.innerHTML = submissions.map(sub => `
+                <div style="border-bottom:1px solid #ccc; margin-bottom:10px;">
+                    <strong>${sub.name}</strong> (${sub.email}) - ${sub.farmType}<br>
+                    📝 ${sub.message.substring(0, 80)}<br>
+                    <small>${sub.date}</small>
+                </div>
+            `).join('');
+        });
+    }
 }
 
-// VISITS COUNTER
-
-let visits =
-Number(localStorage.getItem("visits")) || 0;
-
-visits++;
-
-localStorage.setItem("visits", visits);
-
-const visitCount =
-document.querySelector("#visit-count");
-
-if(visitCount){
-
-visitCount.textContent =
-`Visits: ${visits}`;
-
-}
-
-// FOOTER
-
-document.querySelectorAll("#currentYear")
-.forEach(el=>{
-
-el.textContent =
-new Date().getFullYear();
-
-});
-
-document.querySelectorAll("#lastModified")
-.forEach(el=>{
-
-el.textContent =
-document.lastModified;
-
+// ========== INITIALIZE ALL ==========
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+    initHomeStats();
+    initCropTool();
+    initLivestockCalc();
+    initWaterTool();
+    initContactForm();
 });

@@ -1,70 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgriTech Farming Hub</title>
-
-<link rel="stylesheet" href="styles/styles.css">
-<script src="scripts/main.js" defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AgriTech Farming Hub | Modern Agriculture Solutions</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-
-<h1>AgriTech Farming Hub</h1>
-
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="crops.html">Crop Production</a></li>
-<li><a href="livestock.html">Livestock & Tech</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-
+    <div class="container navbar">
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <h2>AgriTech Hub</h2>
+        </div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="crops.html">Crops</a></li>
+            <li><a href="livestock.html">Livestock</a></li>
+            <li><a href="technology.html">Tech & Irrigation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 </header>
 
-<section class="hero">
-
-<h2>Modern Farming for a Better Future</h2>
-
-<p>
-Learn how technology is transforming agriculture.
-</p>
-
-</section>
-
 <main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Smart Farming for a Sustainable Future</h1>
+            <p>Discover modern agricultural techniques that boost productivity while protecting our planet. Join the AgriTech revolution today.</p>
+            <button class="btn-primary" id="exploreBtn">Explore Methods →</button>
+        </section>
 
-<section>
+        <!-- Featured Categories Grid -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌾</div>
+                <h3>Crop Farming</h3>
+                <p>High-yield techniques, precision planting, and soil health management for maximum harvests.</p>
+                <a href="crops.html" class="card-link">Learn More →</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🐄</div>
+                <h3>Livestock Farming</h3>
+                <p>Modern animal husbandry, rotational grazing, and health monitoring systems.</p>
+                <a href="livestock.html" class="card-link">Learn More →</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💧</div>
+                <h3>Irrigation Systems</h3>
+                <p>Drip irrigation, smart sensors, and water conservation for dry regions.</p>
+                <a href="technology.html" class="card-link">Learn More →</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Sustainable Ag</h3>
+                <p>Eco-friendly pest control, carbon farming, and regenerative practices.</p>
+                <a href="technology.html" class="card-link">Learn More →</a>
+            </div>
+        </section>
 
-<h2>Farming Tips</h2>
+        <!-- Dynamic Stats Section with JavaScript -->
+        <section class="stats-section">
+            <h2>Modern Farming Impact</h2>
+            <div class="stats-container" id="statsContainer">
+                <!-- Stats will be injected via JS -->
+            </div>
+            <button class="btn-outline" id="updateStatsBtn">Update with Local Data</button>
+            <p class="stats-note" id="statsNote"></p>
+        </section>
 
-<div id="tips-container"></div>
-
-</section>
-
+        <!-- Quote / Highlight -->
+        <section class="highlight-quote">
+            <div class="quote-box">
+                <p class="quote-text">"Agriculture is our wisest pursuit because it will in the end contribute most to real wealth, good morals, and happiness."</p>
+                <p class="quote-author">— Thomas Jefferson</p>
+            </div>
+        </section>
+    </div>
 </main>
 
 <footer>
-
-<p>
-© <span id="currentYear"></span>
-AgriTech Farming Hub
-</p>
-
-<p>
-Last Modified:
-<span id="lastModified"></span>
-</p>
-
-<p id="visit-count"></p>
-
-<a href="references.html">References</a>
-
+    <div class="container footer-content">
+        <div class="footer-col">
+            <h3>AgriTech Farming Hub</h3>
+            <p>Empowering farmers with technology and sustainable practices.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="crops.html">Crops</a></li>
+                <li><a href="livestock.html">Livestock</a></li>
+                <li><a href="technology.html">Technology</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#">Modern Farming Guide</a></li>
+                <li><a href="#">Pest Control Tips</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 AgriTech Farming Hub — Developed by Tumwesige Nelson | Site Plan Compliant</p>
+    </div>
 </footer>
 
+<script src="scripts/main.js"></script>
 </body>
 </html>
