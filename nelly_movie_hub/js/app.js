@@ -1,9 +1,8 @@
 const MOVIES_PER_PAGE = 6;
 
-// Replace this with your WhatsApp number in international format.
 // Uganda example: 2567XXXXXXXX
 const WHATSAPP_NUMBER = "256775781560";
-const WHATSAPP_MESSAGE = "Hello, I would like to contact you about your movie website.";
+const WHATSAPP_MESSAGE = "Hello, I would like to to get for me a movie, Is it okay?";
 
 let currentPage = 1;
 

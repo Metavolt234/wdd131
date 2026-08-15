@@ -1,9 +1,6 @@
 /*
   MOVIE SETUP
   -----------
-  Add your movie's YouTube or other video URL in the `link` field.
-
-  Example:
   link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
 
   The Watch Movie button opens that exact link in a new tab.
@@ -17,7 +14,7 @@ const movies = [
     genre: "Action",
     duration: "2h 05m",
     poster: "images/poster.png",
-    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
+    link: "https://drive.google.com/file/d/1fpbgsaIZ6bWIIdVqe_6xB_2RRMd49b2_/view?usp=sharing"
   },
   {
     title: "NORMAL JR",
@@ -41,7 +38,7 @@ const movies = [
     genre: "High School",
     duration: "2h 10m",
     poster: "images/poster.png",
-    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
+    link: "https://drive.google.com/file/d/19BGzjbId4HjU-0cEZM91AQywUVC2Y4Ad/view?usp=sharing"
   },
   {
     title: "THE_WRECKING_CREW_JR",
@@ -57,6 +54,6 @@ const movies = [
     genre: "Cartoon",
     duration: "1h 40m",
     poster: "images/poster.png",
-    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
+    link: "https://drive.google.com/file/d/1b1s4SoujMHGVJMBLYF33QhpOocCiIb0x/view?usp=sharing"
   }
 ];
