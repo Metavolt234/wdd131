@@ -54,16 +54,10 @@ function renderMovies() {
 
         <div class="movie-actions">
           <a class="action-btn watch"
-             href="${movie.video}"
+             href="${movie.link}"
              target="_blank"
-             rel="noopener">
-             ▶ Watch
-          </a>
-
-          <a class="action-btn"
-             href="${movie.video}"
-             download>
-             ↓ Download
+             rel="noopener noreferrer">
+             ▶ Watch Movie
           </a>
         </div>
       </div>

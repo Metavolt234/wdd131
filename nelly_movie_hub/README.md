@@ -47,3 +47,29 @@ For other people to watch and download the movies through a shared website link,
 Use video formats such as MP4 (H.264/AAC) for broad browser compatibility.
 
 Only upload and distribute movies that you own or have permission/licensing to distribute.
+
+
+## Movie direct links
+Each movie now has a `link` property in `js/movies.js`, for example:
+
+```js
+{
+  title: "MICHAEL_JR",
+  video: "movies/MICHAEL_JR.mp4",
+  link: "movies/MICHAEL_JR.mp4"
+}
+```
+
+The Watch and Download buttons use the `link` value. After hosting, a movie file can be referenced directly as `https://YOUR-DOMAIN.com/movies/MICHAEL_JR.mp4`. Make sure the MP4 files are uploaded to the `movies` folder on your host.
+
+
+YOUTUBE / EXTERNAL MOVIE LINKS
+==============================
+For each movie, edit js/movies.js and put the video URL in the `link` property.
+Example:
+  link: "https://www.youtube.com/watch?v=ABC123XYZ"
+
+The Watch Movie button opens the URL in a new browser tab. No movie file is required in a `movies` folder.
+
+For YouTube, use the normal watch URL copied from YouTube, for example:
+  https://www.youtube.com/watch?v=VIDEO_ID

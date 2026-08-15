@@ -1,14 +1,12 @@
 /*
   MOVIE SETUP
   -----------
-  Put your movie files inside the "movies" folder.
-  Put poster images inside the "images" folder.
+  Add your movie's YouTube or other video URL in the `link` field.
 
   Example:
-  movies/movie1.mp4
-  images/movie1.jpg
+  link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
 
-  Add/edit the objects below for your movies.
+  The Watch Movie button opens that exact link in a new tab.
   The website automatically shows only 6 movies per page.
 */
 
@@ -19,7 +17,7 @@ const movies = [
     genre: "Action",
     duration: "2h 05m",
     poster: "images/poster.png",
-    video: "movies/MICHAEL_JR.mp4"
+    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
   },
   {
     title: "NORMAL JR",
@@ -27,7 +25,7 @@ const movies = [
     genre: "Drama",
     duration: "1h 50m",
     poster: "images/poster.png",
-    video: "movies/NORMAL_JR.mp4"
+    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
   },
   {
     title: "OFFICE ROMANCE_JR",
@@ -35,7 +33,7 @@ const movies = [
     genre: "Love Story",
     duration: "1h 45m",
     poster: "images/poster.png",
-    video: "movies/OFFICE_ROMANCE_JR.mp4"
+    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
   },
   {
     title: "THE HATE YOU GIVE JR ",
@@ -43,7 +41,7 @@ const movies = [
     genre: "High School",
     duration: "2h 10m",
     poster: "images/poster.png",
-    video: "movies/THE HATE YOU GIVE JR.mp4"
+    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
   },
   {
     title: "THE_WRECKING_CREW_JR",
@@ -51,7 +49,7 @@ const movies = [
     genre: "Thriller",
     duration: "2h 15m",
     poster: "images/poster.png",
-    video: "movies/THE_WRECKING_CREW_JR.mp4"
+    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
   },
   {
     title: "HOTEL_TRANSYLVANIA_1_KEVO",
@@ -59,6 +57,6 @@ const movies = [
     genre: "Cartoon",
     duration: "1h 40m",
     poster: "images/poster.png",
-    video: "movies/HOTEL_TRANSYLVANIA_1_KEVO.mp4"
+    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
   }
 ];
