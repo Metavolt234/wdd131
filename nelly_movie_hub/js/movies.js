@@ -25,7 +25,7 @@ const movies = [
     genre: "Drama",
     duration: "1h 50m",
     poster: "images/poster.png",
-    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
+    link: "https://drive.google.com/file/d/14szvYiNfThlTwjF0f4mfEPmq4zFLZ3mW/view?usp=sharing"
   },
   {
     title: "OFFICE ROMANCE_JR",
