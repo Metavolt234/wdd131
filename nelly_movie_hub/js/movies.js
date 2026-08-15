@@ -30,7 +30,7 @@ const movies = [
     genre: "Love Story",
     duration: "1h 45m",
     poster: "images/poster.png",
-    link: "https://www.youtube.com/watch?v=PASTE_YOUR_LINK_HERE"
+    link: "https://drive.google.com/file/d/1JKbTJHEzCnGHP5v_Lnj0MmsWLrhhKSvw/view?usp=sharing"
   },
   {
     title: "THE HATE YOU GIVE JR ",
